@@ -41,8 +41,8 @@ public class NIF2StanfordConverter {
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
                 if(listOfFiles[i].getName().endsWith(".ttl")) {
-                    System.out.println("File " + listOfFiles[i].getName());
-                    convertOneFile(dataLoc+"dbpedia-abstracts/"+listOfFiles[i].getName(), dataLoc);
+                    System.out.println("File " + dataLoc+"dbpedia-abstracts/"+listOfFiles[i].getName());
+//                    convertOneFile(dataLoc+"dbpedia-abstracts/"+listOfFiles[i].getName(), dataLoc);
                 }
             }
         }
