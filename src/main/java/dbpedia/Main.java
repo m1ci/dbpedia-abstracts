@@ -44,6 +44,7 @@ public class Main
 //            td.create(hm);
             String dir = args[0];
 //            String dir = "/Users/Milan/Downloads/db-abstracts-en/";            
+            System.out.println("data loc: "+dir);
             new NIF2StanfordConverter().convertAll(dir);
 //            DBpediaOntologyHelper helper = DBpediaOntologyHelper.getInstance();
 //            System.out.println(helper.getCoarseGrainedType("http://dbpedia.org/ontology/AdministrativeRegion"));
