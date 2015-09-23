@@ -42,7 +42,7 @@ public class NIF2StanfordConverter {
             if (listOfFiles[i].isFile()) {
                 if(listOfFiles[i].getName().endsWith(".ttl")) {
                     System.out.println("File " + listOfFiles[i].getName());
-                    convertOneFile(dataLoc+listOfFiles[i].getName(), dataLoc);
+                    convertOneFile(dataLoc+"dbpedia-abstracts/"+listOfFiles[i].getName(), dataLoc);
                 }
             }
         }
