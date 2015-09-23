@@ -36,7 +36,7 @@ public class NIF2StanfordConverter {
     
     public void convertAll(String dataLoc) {
 //        String dir = "/Users/Milan/Downloads/db-abstracts-en/";
-        File folder = new File(dataLoc);
+        File folder = new File(dataLoc+"dbpedia-abstracts/");
         File[] listOfFiles = folder.listFiles();
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
