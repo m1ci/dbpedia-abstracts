@@ -42,7 +42,7 @@ public class NIF2StanfordConverter {
             if (listOfFiles[i].isFile()) {
                 if(listOfFiles[i].getName().endsWith(".ttl")) {
                     System.out.println("File " + dataLoc+"dbpedia-abstracts/"+listOfFiles[i].getName());
-//                    convertOneFile(dataLoc+"dbpedia-abstracts/"+listOfFiles[i].getName(), dataLoc);
+                    convertOneFile(dataLoc+"dbpedia-abstracts/"+listOfFiles[i].getName(), dataLoc);
                 }
             }
         }
@@ -115,7 +115,13 @@ public class NIF2StanfordConverter {
                     System.out.println("problem:" + ex.getMessage());
                     System.out.println("problem:" + ex.fillInStackTrace());
                 } finally {
-                    out.close();
+                    try {
+                        out.close();
+                    } catch (Exception ex) {
+                        System.out.println("problem2:" + ex.getMessage());
+                        System.out.println("problem2:" + ex.fillInStackTrace());
+                    
+                    }
                 }
             }
 
