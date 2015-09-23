@@ -35,7 +35,7 @@ public class DBpediaOntologyHelper {
         
         while(!resource.getURI().equals("http://www.w3.org/2002/07/owl#Thing")) {
             Resource superClass = resource.getProperty(model.getProperty("http://www.w3.org/2000/01/rdf-schema#subClassOf")).getObject().asResource();
-            System.out.println(superClass);
+//            System.out.println(superClass);
             resource = superClass;
             switch (superClass.getURI()) {
                 case "http://dbpedia.org/ontology/Place":
