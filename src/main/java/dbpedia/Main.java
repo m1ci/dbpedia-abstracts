@@ -43,9 +43,11 @@ public class Main
 //            TrainDataCreator td = new TrainDataCreator();
 //            td.create(hm);
             String dir = args[0];
+            String lang = args[1];
 //            String dir = "/Users/Milan/Downloads/db-abstracts-en/";            
             System.out.println("data loc: "+dir);
-            new NIF2StanfordConverter().convertAll(dir);
+            System.out.println("lang: "+lang);
+            new NIF2StanfordConverter().convertAll(dir, lang);
 //            DBpediaOntologyHelper helper = DBpediaOntologyHelper.getInstance();
 //            System.out.println(helper.getCoarseGrainedType("http://dbpedia.org/ontology/AdministrativeRegion"));
 //            System.out.println(helper.getCoarseGrainedType("http://dbpedia.org/ontology/PopulatedPlace"));

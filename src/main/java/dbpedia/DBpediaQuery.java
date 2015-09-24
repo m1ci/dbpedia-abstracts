@@ -26,11 +26,11 @@ public class DBpediaQuery {
     private static HDTGraph graph;
     private static Model model;
     
-    public static DBpediaQuery getInstance(String dataLoc) {
+    public static DBpediaQuery getInstance(String dataLoc, String lang) {
         if(instance == null) {
             try {
                 instance = new DBpediaQuery();
-                hdt = HDTManager.mapIndexedHDT(dataLoc+"instance-types_en.hdt", null);
+                hdt = HDTManager.mapIndexedHDT(dataLoc+"instance-types_"+lang+".hdt", null);
                 graph = new HDTGraph(hdt);
                 model = ModelFactory.createModelForGraph(graph);
             } catch (IOException ex) {

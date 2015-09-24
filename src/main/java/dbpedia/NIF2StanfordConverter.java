@@ -34,7 +34,7 @@ import org.apache.jena.riot.system.SyntaxLabels;
  */
 public class NIF2StanfordConverter {
     
-    public void convertAll(String dataLoc) {
+    public void convertAll(String dataLoc, String lang) {
 //        String dir = "/Users/Milan/Downloads/db-abstracts-en/";
         File folder = new File(dataLoc+"dbpedia-abstracts/");
         File[] listOfFiles = folder.listFiles();
@@ -42,20 +42,20 @@ public class NIF2StanfordConverter {
             if (listOfFiles[i].isFile()) {
                 if(listOfFiles[i].getName().endsWith(".ttl")) {
                     System.out.println("File " + dataLoc+"dbpedia-abstracts/"+listOfFiles[i].getName());
-                    convertOneFile(dataLoc+"dbpedia-abstracts/"+listOfFiles[i].getName(), dataLoc);
+                    convertOneFile(dataLoc+"dbpedia-abstracts/"+listOfFiles[i].getName(), dataLoc, lang);
                 }
             }
         }
     }
     
     
-    public void convertOneFile(String fileLoc, String dataLoc) {
+    public void convertOneFile(String fileLoc, String dataLoc, String lang) {
             
             
             
 //            String dir = "/Users/Milan/Downloads/db-abstracts-en/abstracts_en0.ttl";
             DBpediaOntologyHelper dbp = DBpediaOntologyHelper.getInstance(dataLoc);
-            DBpediaQuery dbQuery = DBpediaQuery.getInstance(dataLoc);
+            DBpediaQuery dbQuery = DBpediaQuery.getInstance(dataLoc, lang);
             
             Model model = RDFDataMgr.loadModel(fileLoc);
             System.out.println(fileLoc);
