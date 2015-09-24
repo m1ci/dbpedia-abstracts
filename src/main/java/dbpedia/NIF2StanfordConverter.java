@@ -68,7 +68,10 @@ public class NIF2StanfordConverter {
                 Statement ctxtStm = ctxtIter.nextStatement();
                 Resource ctxtRes = ctxtStm.getSubject();
                 try {
-                    String docId = ctxtRes.getURI().split("/")[ctxtRes.getURI().split("/").length-2];
+//                    String docId = ctxtRes.getURI().split("/")[ctxtRes.getURI().split("/").length-2];
+                    String[] splitParts = ctxtRes.getURI().split("dbpedia.org/resource/");
+                    String[] secondParts = splitParts[1].split("/abstract");
+                    String docId = secondParts[0];
                     System.out.println(docId);
                     out = new PrintWriter(new BufferedWriter(new FileWriter(dataLoc+"train-data/"+docId, true)));
 //                    out = new PrintWriter(new BufferedWriter(new FileWriter("/Users/Milan/Documents/research/repositories/dbpedia-abstracts-processor/train-data/"+docId, true)));
