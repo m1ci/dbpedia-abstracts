@@ -152,6 +152,8 @@ public class PageLinksProcessor {
 //                    myobj.setLabel(labelIter.nextStatement().getObject().asLiteral().toString());
                     out.write(labelIter.nextStatement().getObject().asLiteral().getValue()+"\t"+i.getLink()+"\t"+i.getCount()+"\n");
                     out.flush();
+                } else {
+                    System.out.println("No label for: " + i.getLink());
                 }
 //                out.write(i.getLink()+"\t"+i.getCount()+"\n");
             }
