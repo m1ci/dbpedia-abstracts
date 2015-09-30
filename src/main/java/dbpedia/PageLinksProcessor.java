@@ -140,7 +140,7 @@ public class PageLinksProcessor {
             while (it.hasNext()) {
                 Map.Entry pair = (Map.Entry)it.next();                
 //                System.out.println(pair.getKey() + " = " + pair.getValue());
-                Instance i = (Instance)pair.getKey();
+                Instance i = (Instance)pair.getValue();
                 StmtIterator iter = model.listStatements(null, model.getProperty("http://dbpedia.org/ontology/wikiPageWikiLink"), model.getResource(i.getLink()));
                 while(iter.hasNext()) {
                     iter.nextStatement();
