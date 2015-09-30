@@ -147,14 +147,23 @@ public class PageLinksProcessor {
                     i.setCount(i.getCount()+1);
                 }
                 it.remove(); // avoids a ConcurrentModificationException
-                StmtIterator labelIter = model.listStatements(model.getResource(i.getLink()), RDFS.label, (RDFNode)null);
-                if(labelIter.hasNext()) {
-//                    myobj.setLabel(labelIter.nextStatement().getObject().asLiteral().toString());
-                    out.write(labelIter.nextStatement().getObject().asLiteral().getValue()+"\t"+i.getLink()+"\t"+i.getCount()+"\n");
+                
+                if(model.getResource(i.getLink()).hasProperty(RDFS.label)) {
+                    String label = model.getResource(i.getLink()).getProperty(RDFS.label).getObject().asLiteral().getString();
+                    out.write(label+"\t"+i.getLink()+"\t"+i.getCount()+"\n");
                     out.flush();
                 } else {
                     System.out.println("No label for: " + i.getLink());
                 }
+                
+//                StmtIterator labelIter = model.listStatements(model.getResource(i.getLink()), RDFS.label, (RDFNode)null);
+//                if(labelIter.hasNext()) {
+////                    myobj.setLabel(labelIter.nextStatement().getObject().asLiteral().toString());
+//                    out.write(labelIter.nextStatement().getObject().asLiteral().getValue()+"\t"+i.getLink()+"\t"+i.getCount()+"\n");
+//                    out.flush();
+//                } else {
+//                    System.out.println("No label for: " + i.getLink());
+//                }
 //                out.write(i.getLink()+"\t"+i.getCount()+"\n");
             }
             System.out.println(totalCounter);
