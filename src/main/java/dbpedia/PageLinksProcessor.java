@@ -90,7 +90,7 @@ public class PageLinksProcessor {
 
             System.out.println("data loaded");
             
-            String sparql = "SELECT distinct ?obj WHERE { " +
+            String sparql = "SELECT ?subj ?obj WHERE { " +
                         "?subj  <http://dbpedia.org/ontology/wikiPageWikiLink> ?obj . "
                     + "} ";
             System.out.println("now query");
