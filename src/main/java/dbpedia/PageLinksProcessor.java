@@ -75,7 +75,7 @@ public class PageLinksProcessor {
             HDT hdt;
             HDTGraph graph;
             Model model;
-            
+            int totalCounter = 0;
             PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(dataLoc+".inlink", true)));
             
             hdt = HDTManager.mapIndexedHDT(dataLoc, null);
@@ -107,6 +107,7 @@ public class PageLinksProcessor {
                 while(iter.hasNext()) {
                     iter.nextStatement();
                     count++;
+                    totalCounter++;
                 }
                 
 //                String[] splitParts = obj.asResource().getURI().split("dbpedia.org/resource/");
@@ -127,6 +128,7 @@ public class PageLinksProcessor {
                 
 //                list.add(myobj);
             }
+            System.out.println(totalCounter);
 //            System.out.println("sorting");
 //            Collections.sort(list, new CustomComparator());
 //            System.out.println("finished sorting");
