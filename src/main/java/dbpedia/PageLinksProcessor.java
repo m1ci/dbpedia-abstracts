@@ -101,7 +101,7 @@ public class PageLinksProcessor {
 
             while(rs.hasNext()) {
                 QuerySolution sol = rs.nextSolution();
-                Resource subj = sol.get("subk").asResource();
+                Resource subj = sol.get("subj").asResource();
                 Resource obj = sol.get("obj").asResource();
                 
                 if(!hm.containsKey(subj.getURI())) {
