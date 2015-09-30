@@ -11,6 +11,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.vocabulary.RDFS;
 import java.io.BufferedWriter;
@@ -83,12 +84,20 @@ public class PageLinksProcessor {
             int totalCounter = 0;
             PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(dataLoc+".inlink", true)));
             
-//            hdt = HDTManager.mapIndexedHDT(dataLoc, null);
-//            graph = new HDTGraph(hdt);
-//            model = ModelFactory.createModelForGraph(graph);
-            RDFDataMgr.read(model, dataLoc) ;
+            hdt = HDTManager.mapIndexedHDT(dataLoc, null);
+            graph = new HDTGraph(hdt);
+            model = ModelFactory.createModelForGraph(graph);
+//            RDFDataMgr.read(model, dataLoc) ;
             HashMap<String, Instance> hm = new HashMap();
 
+            StmtIterator tmpIter = model.listStatements(model.getResource("http://ru.dbpedia.org/resource/Епархия_Абаэтетубы"), null, (RDFNode)null);
+            while(tmpIter.hasNext()) {
+                Statement stm = tmpIter.nextStatement();
+                System.out.println(stm.getSubject());
+                System.out.println(stm.getPredicate());
+                System.out.println(stm.getObject());
+            }
+            
             System.out.println("data loaded");
             
             String sparql = "SELECT ?subj ?obj WHERE { " +
