@@ -25,6 +25,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.jena.riot.RDFDataMgr;
 import org.rdfhdt.hdt.hdt.HDT;
 import org.rdfhdt.hdt.hdt.HDTManager;
 import org.rdfhdt.hdtjena.HDTGraph;
@@ -78,14 +79,14 @@ public class PageLinksProcessor {
         try {
             HDT hdt;
             HDTGraph graph;
-            Model model;
+            Model model = ModelFactory.createDefaultModel();
             int totalCounter = 0;
             PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(dataLoc+".inlink", true)));
             
-            hdt = HDTManager.mapIndexedHDT(dataLoc, null);
-            graph = new HDTGraph(hdt);
-            model = ModelFactory.createModelForGraph(graph);
-            
+//            hdt = HDTManager.mapIndexedHDT(dataLoc, null);
+//            graph = new HDTGraph(hdt);
+//            model = ModelFactory.createModelForGraph(graph);
+            RDFDataMgr.read(model, dataLoc) ;
             HashMap<String, Instance> hm = new HashMap();
 
             System.out.println("data loaded");
