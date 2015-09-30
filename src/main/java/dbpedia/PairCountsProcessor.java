@@ -68,7 +68,7 @@ public class PairCountsProcessor {
                 Map.Entry pair = (Map.Entry)it.next();
 //                System.out.println(pair.getKey() + " = " + pair.getValue());
                 Occurrence occ = (Occurrence)pair.getValue();
-                out.write(occ.getLabel()+"\t"+occ.getLink()+"\t"+occ.getCount());
+                out.write(occ.getLabel()+"\t"+occ.getLink()+"\t"+occ.getCount()+"\n");
                 it.remove(); // avoids a ConcurrentModificationException
             }
         } catch (IOException ex) {
