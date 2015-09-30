@@ -147,7 +147,13 @@ public class PageLinksProcessor {
                     i.setCount(i.getCount()+1);
                 }
                 it.remove(); // avoids a ConcurrentModificationException
-                out.write(i.getLink()+"\t"+i.getCount()+"\n");
+                StmtIterator labelIter = model.listStatements(model.getResource(i.getLink()), RDFS.label, (RDFNode)null);
+                if(labelIter.hasNext()) {
+//                    myobj.setLabel(labelIter.nextStatement().getObject().asLiteral().toString());
+                    out.write(labelIter.nextStatement().getObject().asLiteral().getValue()+"\t"+i.getLink()+"\t"+i.getCount()+"\n");
+                    out.flush();
+                }
+//                out.write(i.getLink()+"\t"+i.getCount()+"\n");
             }
             System.out.println(totalCounter);
             out.close();
