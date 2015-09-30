@@ -91,6 +91,10 @@ public class PageLinksProcessor {
             HashMap<String, Instance> hm = new HashMap();
 
             StmtIterator tmpIter = model.listStatements(model.getResource("http://ru.dbpedia.org/resource/Епархия_Абаэтетубы"), null, (RDFNode)null);
+            
+            if(!tmpIter.hasNext())
+                System.out.println("No statements");
+                
             while(tmpIter.hasNext()) {
                 Statement stm = tmpIter.nextStatement();
                 System.out.println(stm.getSubject());
