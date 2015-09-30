@@ -49,7 +49,7 @@ public class PairCountsProcessor {
         PrintWriter out = null;
         try {
             //        String dir = "/Users/Milan/Downloads/db-abstracts-en/";
-            out = new PrintWriter(new BufferedWriter(new FileWriter(dataLoc+"train-data/pairCounts", true)));
+            out = new PrintWriter(new BufferedWriter(new FileWriter(dataLoc+"train-data-pair-counts/pairCounts", true)));
             HashMap<String,Occurrence> hm = new HashMap();
             File folder = new File(dataLoc+"dbpedia-abstracts/");
             File[] listOfFiles = folder.listFiles();
