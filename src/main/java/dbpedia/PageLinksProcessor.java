@@ -134,7 +134,7 @@ public class PageLinksProcessor {
 //                    out.flush();
 //                }
             }
-            
+            System.out.println("size: " + hm.size());
             Iterator it = hm.entrySet().iterator();
             
             while (it.hasNext()) {
