@@ -74,7 +74,7 @@ public class PageLinksProcessor {
             Logger.getLogger(PageLinksProcessor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void processInLinksCounts(String lang, String dataLoc) {
+    public void processInLinksCounts(String dataLoc) {
         try {
             HDT hdt;
             HDTGraph graph;
