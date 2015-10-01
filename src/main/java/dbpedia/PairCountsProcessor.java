@@ -24,6 +24,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringReader;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -68,7 +69,7 @@ public class PairCountsProcessor {
                 Map.Entry pair = (Map.Entry)it.next();
 //                System.out.println(pair.getKey() + " = " + pair.getValue());
                 Occurrence occ = (Occurrence)pair.getValue();
-                out.write(occ.getLabel()+"\t"+occ.getLink()+"\t"+occ.getCount()+"\n");
+                out.write(occ.getLabel()+"\t"+URLDecoder.decode(occ.getLink(), "UTF-8")+"\t"+occ.getCount()+"\n");
                 it.remove(); // avoids a ConcurrentModificationException
             }
         } catch (IOException ex) {
